@@ -1,26 +1,21 @@
 #include<stdio.h>
-int is_prime(int num)
+#include<math.h>
+int main ()
 {
-    int i;
-    for (i=2; i*i<=num; i++)
+    int m,n,i,j,count=0,c=0;
+    scanf("%d%d",&m,&n);
+    if(m==1)
+    m=2;
+    for(j=m;j<=n;j++)
     {
-        if (num%i==0)
+        count=0;
+        for(i=2;i<=sqrt(j);i++)
         {
-            return 0;
+            if(j%i==0)
+            count++;
         }
-    }
-    return 1;
-}
-int main()
-{
-    int a,b,c=0;
-    scanf("%d%d",&a,&b);
-    for (a;a<=b;a++)
-    {
-        if (is_prime(a)==1 && a!=1)
-        {
-            c++;
-        }
+        if(count==0)
+        c++;
     }
     printf("%d",c);
     return 0;
